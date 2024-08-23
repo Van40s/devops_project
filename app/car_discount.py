@@ -21,5 +21,6 @@ def calculate_discount(discount):
         )  # testing branch rules v2 #testing branch rules v3
         if result.modified_count > 0:
             updated_count += 1  # Increment the count for each updated document
+            # forgot to add secrets. Testing build and push again.
 
     return updated_count
