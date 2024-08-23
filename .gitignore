@@ -1,0 +1,6 @@
+venv
+
+populate_mongodb.py
+
+.envrc
+.idea
