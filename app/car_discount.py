@@ -17,9 +17,8 @@ def calculate_discount(discount):
 
         result = collection.update_one(
             {"_id": doc["_id"]},
-            {
-                "$set": {"price": int(discounted_price)}}, # testing pre-commit to fail
-        )
+            {"$set": {"price": int(discounted_price)}},  # testing pre-commit to fail
+        )  # testing branch rules v2
         if result.modified_count > 0:
             updated_count += 1  # Increment the count for each updated document
 
