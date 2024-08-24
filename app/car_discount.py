@@ -11,7 +11,7 @@ collection = db["available_cars"]
 def calculate_discount(discount):
     mongo_docs = collection.find({}, {"price": 1})
     updated_count = 0
-
+    # Testiram testiram
     for doc in mongo_docs:
         discounted_price = doc["price"] * (1 - discount / 100.0)
 
