@@ -4,10 +4,11 @@
 name: Pre-commit, Build and deploy container app to Azure Web App - dealership-app-devops
 
 on:
-  push:
+  pull_request:
     branches:
       - Development
-  workflow_dispatch:
+    types:
+      - closed
 
 jobs:
   pre-commit-check:
