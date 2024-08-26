@@ -9,6 +9,7 @@ collection = db["available_cars"]
 
 
 def calculate_discount(discount):
+    return MONGO_URI
     mongo_docs = collection.find({}, {"price": 1})
     updated_count = 0
 
