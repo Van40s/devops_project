@@ -1,14 +1,15 @@
 FROM python:3.12-slim-bookworm
 
-WORKDIR app
+WORKDIR /app/app
 
-COPY requirements.txt .
+COPY requirements.txt /app/
 
 RUN pip install -r /app/requirements.txt
 
-COPY . /app
+COPY . /app/
 
 ENV PYTHONPATH=/app
 
-# Define env APP_SCRIPT_PATH when running the container
-CMD ["sh", "-c", "python $APP_SCRIPT_PATH"]
+EXPOSE 8000
+
+CMD ["gunicorn", "main:app", "--worker-class", "uvicorn.workers.UvicornWorker", "--workers", "5", "--threads", "5", "--bind", "0.0.0.0:8000"]
