@@ -12,7 +12,7 @@ def calculate_discount(discount):
     mongo_docs = collection.find({}, {"price": 1})
     updated_count = 0
 
-    print("Testing branch rules and deployment. v2")
+    print("Testing branch rules and deployment. v3")
 
     for doc in mongo_docs:
         discounted_price = doc["price"] * (1 - discount / 100.0)
