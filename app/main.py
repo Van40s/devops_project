@@ -12,3 +12,8 @@ async def root(discount: float):
         "message": f"Prices updated with a {discount}% discount",
         "updated_count": updated_count,
     }
+
+
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
