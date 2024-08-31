@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: mongodb
 data:
-  MONGODB_HOST: localhost
+  MONGODB_HOST: mongodb-service
   MONGODB_PORT: "27017"
