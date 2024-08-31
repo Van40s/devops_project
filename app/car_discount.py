@@ -1,7 +1,29 @@
 from pymongo import MongoClient
 import os
 
-MONGO_URI = os.getenv("MONGODB_URI")
+
+def get_mongo_uri():
+    mongo_uri = os.getenv("MONGODB_URI")
+    if not mongo_uri:
+        host = os.getenv("MONGODB_HOST")
+        port = os.getenv("MONGODB_PORT")
+        username = os.getenv("MONGODB_USERNAME")
+        password = os.getenv("MONGODB_PASSWORD")
+        if username:
+            auth = username
+            if password:
+                auth = f"{username}:{password}"
+            if not port or host.__contains__(":"):
+                mongo_uri = f"mongodb://{auth}@{host}"
+            else:
+                mongo_uri = f"mongodb://{auth}@{host}:{port}"
+        else:
+            mongo_uri = f"mongodb://{host}:{port}"
+
+    return mongo_uri
+
+
+MONGO_URI = get_mongo_uri()
 
 mongo_client = MongoClient(MONGO_URI)
 db = mongo_client["dealership"]

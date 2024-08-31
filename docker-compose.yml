@@ -8,7 +8,10 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - MONGODB_URI=mongodb://mongo:27017/
+      - MONGODB_HOST=mongo
+      - MONGODB_PORT=27017
+      - MONGODB_USERNAME=vane
+      - MONGODB_PASSWORD=Vane123
     depends_on:
       - mongo
 

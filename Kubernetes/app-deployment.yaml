@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dealership-app-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dealership-app
+  template:
+    metadata:
+      labels:
+        app: dealership-app
+    spec:
+      containers:
+      - name: dealership-app
+        image: vanestojanov/devops_project:latest
+        ports:
+        - containerPort: 8000
+        env:
+        - name: MONGODB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: mongodb
+              key: MONGODB_HOST
+        - name: MONGODB_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: mongodb
+              key: MONGODB_PORT
+        - name: MONGODB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-credentials
+              key: MONGODB_USERNAME
+        - name: MONGODB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mongodb-credentials
+              key: MONGODB_PASSWORD
