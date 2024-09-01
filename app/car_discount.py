@@ -48,3 +48,14 @@ def calculate_discount(discount):
             # forgot to add secrets. Testing build and push again.
 
     return updated_count
+
+
+def get_available_cars():
+    mongo_docs = collection.find({}, {"_id": 0})
+
+    in_db = []
+
+    for doc in mongo_docs:
+        in_db.append(doc)
+
+    return in_db

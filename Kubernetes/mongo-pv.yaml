@@ -4,11 +4,12 @@ metadata:
   name: mongodb-pv
 spec:
   capacity:
-    storage: 5Gi
+    storage: 100Mi
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: /mnt/data/mongodb
+    path: /data/db
+    type: ""
   persistentVolumeReclaimPolicy: Retain
   storageClassName: standard
   volumeMode: Filesystem
