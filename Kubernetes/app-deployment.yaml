@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: dealership-app
-        image: vanestojanov/devops_project:latest
+        image: index.docker.io/vanestojanov/devops_project:d849e44f4da3afa529c235af2fc4aa4c5c528ece
         ports:
         - containerPort: 8000
         env:
