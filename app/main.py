@@ -31,3 +31,8 @@ async def root():
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
+
+
+@app.get("/prezentacija")
+async def root():
+    return {"message": "Nov commit za vreme na prezentacija"}
